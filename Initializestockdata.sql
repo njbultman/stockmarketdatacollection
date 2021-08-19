@@ -3,7 +3,7 @@ This script sets up the basic table structure for the stockdata database that ca
 @author: Nick Bultman, August 2021
 */
 
-CREATE DATABASE stockdata
+CREATE DATABASE stockdata;
 
 CREATE TABLE tdameritrade_stocks (
     symbol TEXT,
