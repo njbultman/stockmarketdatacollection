@@ -21,7 +21,7 @@ if mcal.get_calendar('NYSE').valid_days(start_date = str((pytz.timezone('America
 else:
 
     # Change directory and import dataconfig file
-    os.chdir('/path/to/dataconfig/here')
+    os.chdir('/path/to/dataconfig/')
 
     import dataconfig
 
@@ -211,10 +211,7 @@ else:
     print(str(datetime.datetime.now()) + ': Combining data and cleaning.')
     
     # Combine all list dataframes into one dataframe
-    history_data_man = pd.DataFrame()
-    
-    for stock in range(len(TechIndicator)):
-        history_data_man = pd.concat([history_data_man, TechIndicator[stock]], axis = 0)
+    history_data_man = pd.concat(TechIndicator, axis = 0)
     
     history_data_man = history_data_man.replace([np.inf, -np.inf], np.nan)
     
@@ -466,7 +463,6 @@ else:
         conn.commit()
     
     print(str(datetime.datetime.now()) + ': Process successfully completed.')
-    
     
     
     
